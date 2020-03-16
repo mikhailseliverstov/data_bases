@@ -71,6 +71,12 @@ ALTER TABLE posts
 		FOREIGN KEY (media_id) REFERENCES media(id)
 			ON DELETE CASCADE; -- если удаляем тип медиа поста, то удаляем все посты этого типа
 
+			
+ALTER TABLE communities
+  ADD CONSTRAINT communities_media_id_fk 
+    FOREIGN KEY (media_id) REFERENCES media(id)
+    	ON DELETE SET NULL;
+
 /*      
 ALTER TABLE profiles DROP FOREIGN KEY profiles_user_id_fk;
 ALTER TABLE profiles DROP FOREIGN KEY profiles_photo_id_fk;
